@@ -16,7 +16,7 @@ public class Main {
 
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext(
-                        "appliation-context.xml"
+                        "test/appliation-context.xml"
                 );
 
         JobLauncher jobLauncher = (JobLauncher) applicationContext.getBean("jobLauncher");
