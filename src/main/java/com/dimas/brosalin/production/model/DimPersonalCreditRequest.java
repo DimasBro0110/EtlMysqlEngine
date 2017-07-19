@@ -76,14 +76,194 @@ public class DimPersonalCreditRequest {
     @Column(name = "PERSONAL_ANNUITY")
     private String personalAnnuity;
 
+    @Column(name = "PERSONAL_EMPLOYER_OWNERSHIP_TYPE")
     private String personalEmployerOwnershipType;
 
+    @Column(name = "PERSONAL_EMPLOYER_INDUSTRY_TYPE")
     private String personalEmployerIndustryType;
 
+    @Column(name = "PERSONAL_NUMBER_OF_EMPLOYEES_TYPE")
     private String personalNumberOfEmployeesType;
 
+    @Column(name = "PERSONAL_EMPLOYER_JOB_STATUS")
     private String personalEmployerJobStatus;
 
+    @Column(name = "PERSONAL_MCS_EMPLOYER_NAME")
     private String personalMcsEmployerName;
 
+    public String getPersonalCreditRequestKey() {
+        return personalCreditRequestKey;
+    }
+
+    public void setPersonalCreditRequestKey(String personalCreditRequestKey) {
+        this.personalCreditRequestKey = personalCreditRequestKey;
+    }
+
+    public String getPersonalCustomerKey() {
+        return personalCustomerKey;
+    }
+
+    public void setPersonalCustomerKey(String personalCustomerKey) {
+        this.personalCustomerKey = personalCustomerKey;
+    }
+
+    public String getPersonalNumberOfDependents() {
+        return personalNumberOfDependents;
+    }
+
+    public void setPersonalNumberOfDependents(String personalNumberOfDependents) {
+        this.personalNumberOfDependents = personalNumberOfDependents;
+    }
+
+    public String getPersonalMilitaryStatus() {
+        return personalMilitaryStatus;
+    }
+
+    public void setPersonalMilitaryStatus(String personalMilitaryStatus) {
+        this.personalMilitaryStatus = personalMilitaryStatus;
+    }
+
+    public String getPersonalJobStatus() {
+        return personalJobStatus;
+    }
+
+    public void setPersonalJobStatus(String personalJobStatus) {
+        this.personalJobStatus = personalJobStatus;
+    }
+
+    public String getPersonalIncome() {
+        return personalIncome;
+    }
+
+    public void setPersonalIncome(String personalIncome) {
+        this.personalIncome = personalIncome;
+    }
+
+    public String getPersonalMultipleIncomeSources() {
+        return personalMultipleIncomeSources;
+    }
+
+    public void setPersonalMultipleIncomeSources(String personalMultipleIncomeSources) {
+        this.personalMultipleIncomeSources = personalMultipleIncomeSources;
+    }
+
+    public String getPersonalCosts() {
+        return personalCosts;
+    }
+
+    public void setPersonalCosts(String personalCosts) {
+        this.personalCosts = personalCosts;
+    }
+
+    public String getPersonalOtherBankCredits() {
+        return personalOtherBankCredits;
+    }
+
+    public void setPersonalOtherBankCredits(String personalOtherBankCredits) {
+        this.personalOtherBankCredits = personalOtherBankCredits;
+    }
+
+    public String getPersonalOtherBankCards() {
+        return personalOtherBankCards;
+    }
+
+    public void setPersonalOtherBankCards(String personalOtherBankCards) {
+        this.personalOtherBankCards = personalOtherBankCards;
+    }
+
+    public String getPersonalScoringPoint() {
+        return personalScoringPoint;
+    }
+
+    public void setPersonalScoringPoint(String personalScoringPoint) {
+        this.personalScoringPoint = personalScoringPoint;
+    }
+
+    public String getPersonalIsCarOwner() {
+        return personalIsCarOwner;
+    }
+
+    public void setPersonalIsCarOwner(String personalIsCarOwner) {
+        this.personalIsCarOwner = personalIsCarOwner;
+    }
+
+    public String getPersonalIsRealtyOwner() {
+        return personalIsRealtyOwner;
+    }
+
+    public void setPersonalIsRealtyOwner(String personalIsRealtyOwner) {
+        this.personalIsRealtyOwner = personalIsRealtyOwner;
+    }
+
+    public String getPersonalStartDate() {
+        return personalStartDate;
+    }
+
+    public void setPersonalStartDate(String personalStartDate) {
+        this.personalStartDate = personalStartDate;
+    }
+
+    public String getPersonalEndDate() {
+        return personalEndDate;
+    }
+
+    public void setPersonalEndDate(String personalEndDate) {
+        this.personalEndDate = personalEndDate;
+    }
+
+    public String getPersonalProductRequestKey() {
+        return personalProductRequestKey;
+    }
+
+    public void setPersonalProductRequestKey(String personalProductRequestKey) {
+        this.personalProductRequestKey = personalProductRequestKey;
+    }
+
+    public String getPersonalAnnuity() {
+        return personalAnnuity;
+    }
+
+    public void setPersonalAnnuity(String personalAnnuity) {
+        this.personalAnnuity = personalAnnuity;
+    }
+
+    public String getPersonalEmployerOwnershipType() {
+        return personalEmployerOwnershipType;
+    }
+
+    public void setPersonalEmployerOwnershipType(String personalEmployerOwnershipType) {
+        this.personalEmployerOwnershipType = personalEmployerOwnershipType;
+    }
+
+    public String getPersonalEmployerIndustryType() {
+        return personalEmployerIndustryType;
+    }
+
+    public void setPersonalEmployerIndustryType(String personalEmployerIndustryType) {
+        this.personalEmployerIndustryType = personalEmployerIndustryType;
+    }
+
+    public String getPersonalNumberOfEmployeesType() {
+        return personalNumberOfEmployeesType;
+    }
+
+    public void setPersonalNumberOfEmployeesType(String personalNumberOfEmployeesType) {
+        this.personalNumberOfEmployeesType = personalNumberOfEmployeesType;
+    }
+
+    public String getPersonalEmployerJobStatus() {
+        return personalEmployerJobStatus;
+    }
+
+    public void setPersonalEmployerJobStatus(String personalEmployerJobStatus) {
+        this.personalEmployerJobStatus = personalEmployerJobStatus;
+    }
+
+    public String getPersonalMcsEmployerName() {
+        return personalMcsEmployerName;
+    }
+
+    public void setPersonalMcsEmployerName(String personalMcsEmployerName) {
+        this.personalMcsEmployerName = personalMcsEmployerName;
+    }
 }

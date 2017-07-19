@@ -37,6 +37,7 @@
     </jdbc:initialize-database>
 
     <bean id="dimCustomer" class="com.dimas.brosalin.production.model.DimCustomer"/>
+    <bean id="dimPersonalCreditRequest" class="com.dimas.brosalin.production.model.DimPersonalCreditRequest"/>
 
     <import resource="job-prod-config.xml"/>
 
