@@ -15,7 +15,6 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate-config.hbm.xml" />
-          <unit-entry name="prod:hibernate-prod-config.hbm.xml" />
           <unit-entry name="sessionFactory" value="dataSource" />
         </datasource-map>
         <naming-strategy-map />
