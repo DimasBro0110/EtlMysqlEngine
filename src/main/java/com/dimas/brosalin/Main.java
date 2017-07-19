@@ -16,18 +16,15 @@ public class Main {
 
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext(
-                        "test/appliation-context.xml"
+                        "prod/application-prod-config.xml"
                 );
 
         JobLauncher jobLauncher = (JobLauncher) applicationContext.getBean("jobLauncher");
-        Job job = (Job) applicationContext.getBean("customJob1");
-        Job job1 = (Job) applicationContext.getBean("customJob2");
+        Job job = (Job) applicationContext.getBean("prodJob1");
 
         try{
             JobExecution jobExecution = jobLauncher.run(job, new JobParameters());
-            JobExecution jobExecution1 = jobLauncher.run(job1, new JobParameters());
             System.out.println("Exit Status : " + jobExecution.getStatus());
-            System.out.println("Exit Status : " + jobExecution1.getStatus());
         }catch (Exception ex){
             ex.printStackTrace();
         }

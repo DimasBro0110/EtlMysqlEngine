@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="jobRepository"
+          class="org.springframework.batch.core.repository.support.JobRepositoryFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="databaseType" value="mysql"/>
+    </bean>
+
+    <bean id="jobLauncher"
+          class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+        <property name="jobRepository" ref="jobRepository"/>
+    </bean>
+
+    <bean id="inReaderDimCustomer" class="java.io.FileReader">
+        <constructor-arg index="0"
+                name="fileName"
+                value="/Users/DmitriyBrosalin/TestFiles/work_data/DimCustomer.csv"
+        />
+    </bean>
+
+    <bean id="dimCustomerBufferedReader" class="java.io.BufferedReader">
+        <constructor-arg index="0" name="in" ref="inReaderDimCustomer"/>
+    </bean>
+
+    <bean id="dimCustomerReader" class="com.dimas.brosalin.production.reader.DimCustomerReader">
+        <property name="dimCustomer" ref="dimCustomer"/>
+        <property name="lineSeparator" value=";"/>
+        <property name="stringQuote" value="©"/>
+        <property name="bufferedReader" ref="dimCustomerBufferedReader"/>
+    </bean>
+    <bean id="dimCustomerWriter" class="com.dimas.brosalin.production.writer.DimCustomerWriter"/>
+
+    <batch:job id="prodJob1">
+        <batch:step id="prodStep1">
+            <batch:tasklet>
+                <batch:chunk reader="dimCustomerReader"
+                             writer="dimCustomerWriter"
+                             commit-interval="1"/>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+</beans>

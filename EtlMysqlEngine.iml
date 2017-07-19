@@ -6,6 +6,8 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/appliation-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/job-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/application-prod-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/job-prod-config.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -13,9 +15,11 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate-config.hbm.xml" />
+          <unit-entry name="prod:hibernate-prod-config.hbm.xml" />
           <unit-entry name="sessionFactory" value="dataSource" />
         </datasource-map>
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/prod/hibernate-config.hbm.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/test/hibernate-config.hbm.xml" />
       </configuration>
     </facet>

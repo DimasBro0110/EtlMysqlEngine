@@ -12,10 +12,11 @@
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="configLocation" value="hibernate-config.hbm.xml"/>
+        <!--<property name="configLocation" value="hibernate-config.hbm.xml"/>-->
+        <property name="packagesToScan" value="com.dimas.brosalin.production.model"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="show_sql">true</prop>
+                <prop key="show_sql">false</prop>
                 <prop key="format_sql">true</prop>
                 <prop key="hbm2ddl.auto">update</prop>
                 <prop key="hibernate.jdbc.batch_size">10</prop>
@@ -36,15 +37,8 @@
         <jdbc:script location="org/springframework/batch/core/schema-mysql.sql" />
     </jdbc:initialize-database>
 
-    <bean id="airLineCodes" class="com.dimas.brosalin.test.model.AirlineCodes"/>
-    <bean id="airPortCodes" class="com.dimas.brosalin.test.model.AirportCodes"/>
-    <bean id="airLineDAO" class="com.dimas.brosalin.test.dao.AirlineCodesDAO">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="airPortDAO" class="com.dimas.brosalin.test.dao.AirportCodesDAO">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="dimCustomer" class="com.dimas.brosalin.production.model.DimCustomer"/>
 
-    <import resource="job-config.xml"/>
+    <import resource="job-prod-config.xml"/>
 
 </beans>
