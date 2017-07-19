@@ -45,7 +45,11 @@
         <property name="lineSeparator" value=","/>
     </bean>
 
-    <bean id="customAirlineCodesWriter" class="com.dimas.brosalin.test.writer.CustomAirlineCodesWriter"/>
+    <bean id="customAirlineCodesWriter"
+          class="com.dimas.brosalin.test.writer.CustomAirlineCodesWriter">
+        <property name="airlineCodesDAO" ref="airLineDAO"/>
+        <property name="headerFile" value="Airline Code,Airline Name"/>
+    </bean>
     <bean id="customAirportCodesWriter" class="com.dimas.brosalin.test.writer.CustomAirportCodesWriter"/>
 
     <batch:job id="customJob1">

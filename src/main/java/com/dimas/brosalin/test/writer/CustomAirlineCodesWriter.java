@@ -1,5 +1,6 @@
 package com.dimas.brosalin.test.writer;
 
+import com.dimas.brosalin.test.dao.AirlineCodesDAO;
 import com.dimas.brosalin.test.model.AirlineCodes;
 import org.springframework.batch.item.ItemWriter;
 
@@ -10,13 +11,25 @@ import java.util.List;
  */
 public class CustomAirlineCodesWriter implements ItemWriter<AirlineCodes> {
 
+    private AirlineCodesDAO airlineCodesDAO;
+    private String headerFile;
+
     public void write(List<? extends AirlineCodes> list) throws Exception {
-        System.out.println("------------------");
+        String[] partHeader = headerFile.split(",");
         list.forEach(obj -> {
-            System.out.println(obj.getAirLineCode());
-            System.out.println(obj.getAirLineName());
+            if(!obj.getAirLineCode().equals(partHeader[0]) &&
+                    !obj.getAirLineCode().equals(partHeader[1])){
+                airlineCodesDAO.save(obj);
+            }
         });
-        System.out.println("------------------");
+
     }
 
+    public void setAirlineCodesDAO(AirlineCodesDAO airlineCodesDAO) {
+        this.airlineCodesDAO = airlineCodesDAO;
+    }
+
+    public void setHeaderFile(String headerFile) {
+        this.headerFile = headerFile;
+    }
 }

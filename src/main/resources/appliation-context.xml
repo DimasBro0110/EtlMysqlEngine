@@ -27,7 +27,9 @@
     </bean>
 
     <bean id="transactionManager"
-          class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <jdbc:initialize-database data-source="dataSource">
         <jdbc:script location="org/springframework/batch/core/schema-drop-mysql.sql" />
@@ -36,6 +38,9 @@
 
     <bean id="airLineCodes" class="com.dimas.brosalin.test.model.AirlineCodes"/>
     <bean id="airPortCodes" class="com.dimas.brosalin.test.model.AirportCodes"/>
+    <bean id="airLineDAO" class="com.dimas.brosalin.test.dao.AirlineCodesDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <import resource="job-config.xml"/>
 

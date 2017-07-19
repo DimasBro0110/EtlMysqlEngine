@@ -47,4 +47,5 @@ public class CustomAirlineCodesReader implements ItemReader<AirlineCodes> {
     public void setAirlineCodes(AirlineCodes airlineCodes) {
         this.airlineCodes = airlineCodes;
     }
+
 }

@@ -20,6 +20,7 @@ public class CustomAirportCodesReader implements ItemReader<AirportCodes> {
     @Override
     public AirportCodes read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
         assert bufferedReader != null;
+        bufferedReader.readLine(); // get rid off header
         String currentLine = bufferedReader.readLine();
         if(currentLine != null){
             String[] partOfCurrentLine = currentLine.split(lineSeparator);
@@ -27,6 +28,7 @@ public class CustomAirportCodesReader implements ItemReader<AirportCodes> {
             airportCodes.setAirPortName(partOfCurrentLine[1]);
             return airportCodes;
         }else{
+            bufferedReader.close();
             return null;
         }
     }
