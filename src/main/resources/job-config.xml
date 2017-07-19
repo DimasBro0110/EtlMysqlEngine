@@ -50,7 +50,10 @@
         <property name="airlineCodesDAO" ref="airLineDAO"/>
         <property name="headerFile" value="Airline Code,Airline Name"/>
     </bean>
-    <bean id="customAirportCodesWriter" class="com.dimas.brosalin.test.writer.CustomAirportCodesWriter"/>
+    <bean id="customAirportCodesWriter" class="com.dimas.brosalin.test.writer.CustomAirportCodesWriter">
+        <property name="headerFile" value="Airport Code,Airport Name"/>
+        <property name="airportCodesDAO" ref="airPortDAO"/>
+    </bean>
 
     <batch:job id="customJob1">
         <batch:step id="customStep1">

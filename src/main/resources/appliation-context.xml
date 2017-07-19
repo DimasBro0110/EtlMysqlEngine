@@ -41,6 +41,9 @@
     <bean id="airLineDAO" class="com.dimas.brosalin.test.dao.AirlineCodesDAO">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean id="airPortDAO" class="com.dimas.brosalin.test.dao.AirportCodesDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <import resource="job-config.xml"/>
 
