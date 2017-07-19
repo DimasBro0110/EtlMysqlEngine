@@ -9,16 +9,6 @@ import javax.persistence.Table;
  * Created by DmitriyBrosalin on 19/07/2017.
  */
 
-/*
-?CustomerKey?;?AccountId?;?CardOpenDate?;?GenderType?;
-?BirthDate?;?BirthPlace?;?MaritalStatus?;?Education?;
-?Citizenship?;?Employer?;?MobilePhoneAvail?;
-?HomePhoneAvail?;?EmailAvail?;?DoNotPhone?;?DoNotSMS?;
-?DoNotEmail?;?DoNotPostalMail?;?DoNotBulkEmail?;
-?DoNotBulkPostalMail?;?DoNotBannerInternetBank?;
-?DoNotCommunicate?;?DoNotEmailInternetBank?;
-?DoNotPersonalChannel?;?CDW_ID?;?DBOID?;?IsEurop?
-* */
 
 @Entity
 @Table(name = "DIM_CUSTOMER")

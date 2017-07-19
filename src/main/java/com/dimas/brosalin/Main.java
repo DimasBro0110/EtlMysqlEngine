@@ -19,11 +19,11 @@ public class Main {
                         "prod/application-prod-config.xml"
                 );
 
-        JobLauncher jobLauncher = (JobLauncher) applicationContext.getBean("jobLauncher");
-        Job job = (Job) applicationContext.getBean("prodJob1");
+        JobLauncher jobProdLauncher = (JobLauncher) applicationContext.getBean("jobLaunch");
+        Job prodJob = (Job) applicationContext.getBean("prodJob1");
 
         try{
-            JobExecution jobExecution = jobLauncher.run(job, new JobParameters());
+            JobExecution jobExecution = jobProdLauncher.run(prodJob, new JobParameters());
             System.out.println("Exit Status : " + jobExecution.getStatus());
         }catch (Exception ex){
             ex.printStackTrace();

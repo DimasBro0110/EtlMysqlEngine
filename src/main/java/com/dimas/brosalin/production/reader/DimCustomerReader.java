@@ -2,12 +2,7 @@ package com.dimas.brosalin.production.reader;
 
 import com.dimas.brosalin.production.model.DimCustomer;
 import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.NonTransientResourceException;
-import org.springframework.batch.item.ParseException;
-import org.springframework.batch.item.UnexpectedInputException;
-
 import java.io.BufferedReader;
-import java.nio.Buffer;
 
 /**
  * Created by DmitriyBrosalin on 19/07/2017.
@@ -20,12 +15,11 @@ public class DimCustomerReader implements ItemReader<DimCustomer>{
     private String stringQuote;
 
     @Override
-    public DimCustomer read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+    public DimCustomer read() throws Exception {
         assert bufferedReader != null;
         String wholeLine = bufferedReader.readLine();
         if(wholeLine != null){
             String[] parts = wholeLine.split(lineSeparator);
-            // 0 -25
             dimCustomer.setCustomerKey(parts[0].replace("©", ""));
             dimCustomer.setCustomerAccountId(parts[1].replace("©", ""));
             dimCustomer.setCustomerCardOpenDate(parts[2].replace("©", ""));
