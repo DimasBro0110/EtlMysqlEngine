@@ -35,7 +35,10 @@
         </property>
     </bean>
 
-    <bean id="dimPersonalCreditRequestWriter" class="com.dimas.brosalin.production.writer.DimPersonalCreditRequestWriter"/>
+    <bean id="dimPersonalCreditRequestWriter"
+          class="com.dimas.brosalin.production.writer.DimPersonalCreditRequestWriter">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <batch:job id="prodJobDimPersonalCreditRequest">
         <batch:step id="prodStepDimPersonalCreditRequest">

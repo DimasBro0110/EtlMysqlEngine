@@ -2,13 +2,14 @@ package com.dimas.brosalin.production.writer;
 
 import com.dimas.brosalin.production.model.DimCustomer;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
 
 /**
  * Created by DmitriyBrosalin on 19/07/2017.
  */
-public class DimCustomerWriter implements ItemWriter<DimCustomer> {
+public class DimCustomerWriter extends HibernateDaoSupport implements ItemWriter<DimCustomer> {
 
     //place to inject DAO
 

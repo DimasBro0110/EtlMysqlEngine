@@ -3,8 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
 
-    <bean id="dimCustomerWriter" class="com.dimas.brosalin.production.writer.DimCustomerWriter"/>
-
     <bean id="batchDimCustomerReaderCsv" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
         <property name="linesToSkip" value="1"/>
         <property name="encoding" value="cp1251"/>
@@ -34,6 +32,10 @@
                 </property>
             </bean>
         </property>
+    </bean>
+
+    <bean id="dimCustomerWriter" class="com.dimas.brosalin.production.writer.DimCustomerWriter">
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <batch:job id="prodJobDimCustomer">

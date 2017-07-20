@@ -28,10 +28,12 @@
         </property>
     </bean>
 
-    <bean id="dimProductSubgroupWriter" class="com.dimas.brosalin.production.writer.DimProductSubgroup"/>
+    <bean id="dimProductSubgroupWriter" class="com.dimas.brosalin.production.writer.DimProductSubgroup">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <batch:job id="prodJobDimCustomer">
-        <batch:step id="prodStepDimCustomer">
+    <batch:job id="prodJobDimProductSubgroup">
+        <batch:step id="prodStepDimProductSubgroup">
             <batch:tasklet>
                 <batch:chunk reader="batchDimProductSubgroupReaderCsv"
                              writer="dimProductSubgroupWriter"

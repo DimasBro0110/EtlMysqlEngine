@@ -20,5 +20,12 @@
     <import resource="job-dimProductSubgroup-conf.xml"/>
     <import resource="job-dimCustomer-conf.xml"/>
     <import resource="job-dimPersonalCreditReq-conf.xml"/>
+    <import resource="job-factDeals-conf.xml"/>
+    <import resource="job-factCaseDeals-conf.xml"/>
+    <import resource="job-factCaseIncident-conf.xml"/>
+    <import resource="job-factCaseProductRequest-conf.xml"/>
+    <import resource="job-factIbLoginHistory-conf.xml"/>
+    <import resource="job-factProductRequest-conf.xml"/>
+    <import resource="job-factRequestFromSite-conf.xml"/>
 
 </beans>
