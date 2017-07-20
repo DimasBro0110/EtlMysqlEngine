@@ -19,7 +19,7 @@ public class Main {
                         "prod/application-prod-config.xml"
                 );
 
-        JobLauncher jobProdLauncher = (JobLauncher) applicationContext.getBean("jobLaunch");
+        JobLauncher jobProdLauncher = (JobLauncher) applicationContext.getBean("jobLauncher");
         Job prodJob = (Job) applicationContext.getBean("prodJob1");
 
         try{
