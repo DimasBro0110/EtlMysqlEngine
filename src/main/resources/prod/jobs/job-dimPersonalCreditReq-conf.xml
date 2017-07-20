@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="batchDimPersonalCreditRequestCsv"
+          class="org.springframework.batch.item.file.FlatFileItemReader"
+          scope="step">
+        <property name="linesToSkip" value="1"/>
+        <property name="encoding" value="cp1251"/>
+        <property name="resource" value="file:/Users/DmitriyBrosalin/TestFiles/work_data/DimPersonalCreditRequest.csv"/>
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer">
+                    <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+                        <property name="delimiter" value=";"/>
+                        <property name="names"
+                                  value="personalCreditRequestKey,personalCustomerKey,personalNumberOfDependents,
+                                  personalMilitaryStatus,personalJobStatus,personalIncome,
+                                  personalMultipleIncomeSources,personalCosts,personalOtherBankCredits,
+                                  personalOtherBankCards,personalScoringPoint,personalIsCarOwner,
+                                  personalIsRealtyOwner,personalStartDate,personalEndDate,
+                                  personalProductRequestKey,personalAnnuity,personalEmployerOwnershipType,
+                                  personalEmployerIndustryType,personalNumberOfEmployeesType,personalEmployerJobStatus,
+                                  personalMcsEmployerName"
+                        />
+                    </bean>
+                </property>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="prototypeBeanName" value="dimPersonalCreditRequest"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dimPersonalCreditRequestWriter" class="com.dimas.brosalin.production.writer.DimPersonalCreditRequestWriter"/>
+
+    <batch:job id="prodJobDimPersonalCreditRequest">
+        <batch:step id="prodStepDimPersonalCreditRequest">
+            <batch:tasklet>
+                <batch:chunk reader="batchDimPersonalCreditRequestCsv"
+                             writer="dimPersonalCreditRequestWriter"
+                             commit-interval="3"/>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+</beans>
