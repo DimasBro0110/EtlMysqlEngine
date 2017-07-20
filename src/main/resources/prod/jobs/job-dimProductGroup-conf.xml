@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="batchDimProductGroupReaderCsv" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
+        <property name="linesToSkip" value="1"/>
+        <property name="encoding" value="cp1251"/>
+        <property name="resource" value="file:/Users/DmitriyBrosalin/TestFiles/work_data/DimProductGroup.csv"/>
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer">
+                    <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+                        <property name="delimiter" value=";"/>
+                        <property name="names"
+                                  value="productGroupKey,productMcsName"
+                        />
+                    </bean>
+                </property>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="prototypeBeanName" value="dimProductGroup"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dimProductGroupWriter" class="com.dimas.brosalin.production.writer.DimProductGroupWriter"/>
+
+    <batch:job id="prodJobDimProductGroup">
+        <batch:step id="prodStepDimProductGroup">
+            <batch:tasklet>
+                <batch:chunk reader="batchDimProductGroupReaderCsv"
+                             writer="dimProductGroupWriter"
+                             commit-interval="3"/>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+</beans>

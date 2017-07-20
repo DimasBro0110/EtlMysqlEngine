@@ -36,9 +36,40 @@
         <jdbc:script location="org/springframework/batch/core/schema-mysql.sql" />
     </jdbc:initialize-database>
 
-    <bean id="dimCustomer" class="com.dimas.brosalin.production.model.DimCustomer"/>
-    <bean id="dimPersonalCreditRequest" class="com.dimas.brosalin.production.model.DimPersonalCreditRequest"/>
+    <bean id="dimCustomer"
+          class="com.dimas.brosalin.production.model.DimCustomer"
+          scope="prototype"/>
+    <bean id="dimPersonalCreditRequest"
+          class="com.dimas.brosalin.production.model.DimPersonalCreditRequest"
+          scope="prototype"/>
+    <bean id="dimProductGroup"
+          class="com.dimas.brosalin.production.model.DimProductGroup"
+          scope="prototype"/>
+    <bean id="dimProductSubgroup"
+          class="com.dimas.brosalin.production.model.DimProductSubgroup"
+          scope="prototype"/>
+    <bean id="factDeals"
+          class="com.dimas.brosalin.production.model.FactDeals"
+          scope="prototype"/>
+    <bean id="factCaseDeal"
+          class="com.dimas.brosalin.production.model.FactCaseDeal"
+          scope="prototype"/>
+    <bean id="factCaseIncident"
+          class="com.dimas.brosalin.production.model.FactCaseIncident"
+          scope="prototype"/>
+    <bean id="factCaseProductRequest"
+          class="com.dimas.brosalin.production.model.FactCaseProductRequest"
+          scope="prototype"/>
+    <bean id="factIbLoginHistory"
+          class="com.dimas.brosalin.production.model.FactCaseProductRequest"
+          scope="prototype"/>
+    <bean id="factProductRequest"
+          class="com.dimas.brosalin.production.model.FactProductRequest"
+          scope="prototype"/>
+    <bean id="factRequestFromSite"
+          class="com.dimas.brosalin.production.model.FactRequestFromSite"
+          scope="prototype"/>
 
-    <import resource="job-prod-config.xml"/>
+    <import resource="jobs/job-prod-config.xml"/>
 
 </beans>

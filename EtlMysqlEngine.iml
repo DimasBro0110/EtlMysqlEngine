@@ -8,6 +8,9 @@
           <file>file://$MODULE_DIR$/src/main/resources/job-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/application-prod-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/job-prod-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-dimCustomer-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-dimProductGroup-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-dimProductSubgroup-conf.xml</file>
         </fileset>
       </configuration>
     </facet>
