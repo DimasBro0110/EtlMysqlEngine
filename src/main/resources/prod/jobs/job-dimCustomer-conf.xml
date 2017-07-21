@@ -43,7 +43,7 @@
             <batch:tasklet>
                 <batch:chunk reader="batchDimCustomerReaderCsv"
                              writer="dimCustomerWriter"
-                             commit-interval="3"/>
+                             commit-interval="10"/>
             </batch:tasklet>
         </batch:step>
     </batch:job>

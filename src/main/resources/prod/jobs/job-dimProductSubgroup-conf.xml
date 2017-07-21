@@ -28,7 +28,7 @@
         </property>
     </bean>
 
-    <bean id="dimProductSubgroupWriter" class="com.dimas.brosalin.production.writer.DimProductSubgroup">
+    <bean id="dimProductSubgroupWriter" class="com.dimas.brosalin.production.writer.DimProductSubgroupWriter">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

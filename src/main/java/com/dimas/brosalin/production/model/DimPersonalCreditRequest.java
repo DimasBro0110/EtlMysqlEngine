@@ -9,16 +9,6 @@ import javax.persistence.Table;
  * Created by DmitriyBrosalin on 19/07/2017.
  */
 
-/*
-* "PersonalCreditRequestKey";"CustomerKey";"NumberOfDependents";
-* "MilitaryStatus";"JobStatus";"Income";
-* "MultipleIncomeSources";"Costs";"OtherBankCredits";
-* "OtherBankCards";"ScoringPoint";"IsCarOwner";
-* "IsRealtyOwner";"StartDate";"EndDate";
-* "ProductRequestKey";"Annuity";"EmployerOwnershipType";
-* "EmployerIndustryType";"NumberOfEmployeesType";"EmployerJobStatus";
-* "mcs_Employer_Name"
-* */
 
 @Entity
 @Table(name = "DIM_PERSONAL_CREDIT_REQUEST")

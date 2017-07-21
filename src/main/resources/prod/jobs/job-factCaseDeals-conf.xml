@@ -28,7 +28,7 @@
         </property>
     </bean>
 
-    <bean id="factCaseDealWriter" class="com.dimas.brosalin.production.writer.FactCaseDeal">
+    <bean id="factCaseDealWriter" class="com.dimas.brosalin.production.writer.FactCaseDealWriter">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
