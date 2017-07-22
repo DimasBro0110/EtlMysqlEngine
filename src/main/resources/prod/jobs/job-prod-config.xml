@@ -27,5 +27,8 @@
     <import resource="job-factIbLoginHistory-conf.xml"/>
     <import resource="job-factProductRequest-conf.xml"/>
     <import resource="job-factRequestFromSite-conf.xml"/>
+    <import resource="job-dimCampaign-conf.xml"/>
+    <import resource="job-factActivity-conf.xml"/>
+    <import resource="job-accountsPlan-conf.xml"/>
 
 </beans>

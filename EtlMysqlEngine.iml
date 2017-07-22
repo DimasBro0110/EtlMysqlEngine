@@ -18,6 +18,9 @@
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factIbLoginHistory-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factProductRequest-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factRequestFromSite-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-dimCampaignWriter-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factActivity-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-accountsPlan-conf.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -34,7 +37,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -45,6 +48,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.7.RELEASE" level="project" />

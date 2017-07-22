@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="batchDimCampaignReaderCsv" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
+        <property name="linesToSkip" value="1"/>
+        <property name="encoding" value="cp1251"/>
+        <property name="resource" value="file:/Users/dmitriybrosalin/TestFiles/Work/DimCampaign.csv"/>
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer">
+                    <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+                        <property name="delimiter" value=";"/>
+                        <property name="names"
+                                  value="dimCampaignKey,dimCampaignName,dimCampaignState,
+                                  dimCampaignType,dimCampaignActualStart,dimCampaignProductSubgroupKey,
+                                  dimCampaignOutgoingCall,dimCampaignSmsChannel,dimCampaignCallChannel,
+                                  dimCampaignCrmHintChannel,dimCampaignEmailChannel,dimCampaignInternetBankChannel,
+                                  dimCampaignAtmChannel,dimCampaignOpportunityChannel,dimCampaignLetterChannel,
+                                  dimCampaignTemplateProductKey,getDimCampaignTemplateProductSubgroupKey"
+                        />
+                    </bean>
+                </property>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="prototypeBeanName" value="dimCampaign"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dimCampaignWriter" class="com.dimas.brosalin.production.writer.DimCampaignWriter">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <batch:job id="prodJobDimCampaign">
+        <batch:step id="prodStepDimCampaign">
+            <batch:tasklet>
+                <batch:chunk reader="batchDimCampaignReaderCsv"
+                             writer="dimCampaignWriter"
+                             commit-interval="10"/>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+</beans>

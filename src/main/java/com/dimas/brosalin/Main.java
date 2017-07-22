@@ -20,7 +20,7 @@ public class Main {
                 );
 
         JobLauncher jobProdLauncher = (JobLauncher) applicationContext.getBean("jobLauncher");
-        Job prodJob = (Job) applicationContext.getBean("prodJobDimCustomer");
+        Job prodJob = (Job) applicationContext.getBean("prodJobFactActivity");
 
         try{
             JobExecution jobExecution = jobProdLauncher.run(prodJob, new JobParameters());

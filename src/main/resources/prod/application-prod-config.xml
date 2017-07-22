@@ -72,6 +72,15 @@
     <bean id="factRequestFromSite"
           class="com.dimas.brosalin.production.model.FactRequestFromSite"
           scope="prototype"/>
+    <bean id="dimCampaign"
+          class="com.dimas.brosalin.production.model.DimCampaign"
+          scope="prototype"/>
+    <bean id="accountsPlan"
+          class="com.dimas.brosalin.production.model.AccountsPlan"
+          scope="prototype"/>
+    <bean id="factActivity"
+          class="com.dimas.brosalin.production.model.FactActivity"
+          scope="prototype"/>
 
     <import resource="jobs/job-prod-config.xml"/>
 
