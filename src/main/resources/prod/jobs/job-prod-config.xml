@@ -30,5 +30,7 @@
     <import resource="job-dimCampaign-conf.xml"/>
     <import resource="job-factActivity-conf.xml"/>
     <import resource="job-accountsPlan-conf.xml"/>
+    <import resource="job-factCampaignActivityMember-conf.xml"/>
+    <import resource="job-factDLCards-conf.xml"/>
 
 </beans>

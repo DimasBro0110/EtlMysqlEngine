@@ -81,6 +81,15 @@
     <bean id="factActivity"
           class="com.dimas.brosalin.production.model.FactActivity"
           scope="prototype"/>
+    <bean id="factCampaignActivityMember"
+          class="com.dimas.brosalin.production.model.FactCampaignActivityMember"
+          scope="prototype"/>
+    <bean id="factDlCards"
+          class="com.dimas.brosalin.production.model.FactDLCards"
+          scope="prototype"/>
+    <bean id="factSalaryProject"
+          class="com.dimas.brosalin.production.model.FactSalaryProject"
+          scope="prototype"/>
 
     <import resource="jobs/job-prod-config.xml"/>
 
