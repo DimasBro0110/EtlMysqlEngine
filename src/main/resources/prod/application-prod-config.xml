@@ -90,6 +90,27 @@
     <bean id="factSalaryProject"
           class="com.dimas.brosalin.production.model.FactSalaryProject"
           scope="prototype"/>
+    <bean id="factAccountOperCdw"
+          class="com.dimas.brosalin.production.model.FactAccount_Oper_CDW"
+          scope="prototype"/>
+    <bean id="factCase"
+          class="com.dimas.brosalin.production.model.FactCase"
+          scope="prototype"/>
+    <bean id="factIncident"
+          class="com.dimas.brosalin.production.model.FactIncident"
+          scope="prototype"/>
+    <bean id="factIntelligentOpportunity"
+          class="com.dimas.brosalin.production.model.FactIntelligentOpportunity"
+          scope="prototype"/>
+    <bean id="factMonthlySalary"
+          class="com.dimas.brosalin.production.model.FactMonthlySalary"
+          scope="prototype"/>
+    <bean id="factMonthlyPension"
+          class="com.dimas.brosalin.production.model.FactMontlyPension"
+          scope="prototype"/>
+    <bean id="factTransactionsCDW"
+          class="com.dimas.brosalin.production.model.FactTransactions_CDW"
+          scope="prototype"/>
 
     <import resource="jobs/job-prod-config.xml"/>
 
