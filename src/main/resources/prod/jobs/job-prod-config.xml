@@ -32,5 +32,13 @@
     <import resource="job-accountsPlan-conf.xml"/>
     <import resource="job-factCampaignActivityMember-conf.xml"/>
     <import resource="job-factDLCards-conf.xml"/>
+    <import resource="job-factMonthlyPension-conf.xml"/>
+    <import resource="job-factMonthlySalary-conf.xml"/>
+    <import resource="job-FactTransactions_CDW-conf.xml"/>
+    <import resource="job-factIntelligentOpportunity-conf.xml"/>
+    <import resource="job-factIncident-conf.xml"/>
+    <import resource="job-factCase-conf.xml"/>
+    <import resource="job-factAccountOperCDW-conf.xml"/>
+    <import resource="job-accountsPlan-conf.xml"/>
 
 </beans>

@@ -24,6 +24,13 @@
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factCampaignActivityMember-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factDLCards-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factSalaryProject-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factMonthlyPension-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/jon-factMonthlySalary-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/jon-FactTransactions_CDWWriter-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factIntelligentOpportunity-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factIncident-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factCase-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-factAccountOperCDW-conf.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -40,7 +47,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
