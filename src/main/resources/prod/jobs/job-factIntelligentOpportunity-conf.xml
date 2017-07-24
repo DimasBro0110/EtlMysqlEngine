@@ -8,7 +8,7 @@
           scope="step">
         <property name="linesToSkip" value="1"/>
         <property name="encoding" value="cp1251"/>
-        <property name="resource" value="file:/Users/DmitriyBrosalin/TestFiles/work_data/FactIntelligentOpportunity.csv"/>
+        <property name="resource" value="file:/home-srv2/projects/SPBBank/input_data/raw_data/FactIntelligentOpportunity.csv"/>
         <property name="lineMapper">
             <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
                 <property name="lineTokenizer">
