@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xmlns:parent="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="taskExecutor" class="org.springframework.core.task.SimpleAsyncTaskExecutor"/>
+
+    <batch:job id="jobParallel">
+        <batch:split id="split" task-executor="taskExecutor" next="step3">
+            <batch:flow>
+                <batch:step id="step1">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchDimProductSubgroupReaderCsv"
+                                     writer="dimProductSubgroupWriter"
+                                     commit-interval="3"/>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+            <batch:flow>
+                <batch:step id="step2">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchDimPersonalCreditRequestCsv"
+                                     writer="dimPersonalCreditRequestWriter"
+                                     commit-interval="3"/>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+        </batch:split>
+            <batch:step id="step3">
+                <batch:tasklet transaction-manager="transactionManager">
+                    <batch:chunk reader="batchDimProductGroupReaderCsv"
+                                 writer="dimProductGroupWriter"
+                                 commit-interval="3"/>
+                </batch:tasklet>
+            </batch:step>
+    </batch:job>
+
+</beans>

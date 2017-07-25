@@ -42,7 +42,7 @@
             <batch:tasklet>
                 <batch:chunk reader="batchFactIntelligentOpportunityCsv"
                              writer="factIntelligentOpportunityWriter"
-                             commit-interval="10">
+                             commit-interval="150">
                     <batch:skip-policy>
                         <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
                     </batch:skip-policy>

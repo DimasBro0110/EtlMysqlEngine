@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 24.07.17.
@@ -35,6 +32,7 @@ public class FactAccount_Oper_CDW {
     @Column(name = "FACT_ACCOUNT_CUSTOMER_KEY_CREDIT")
     private String factAccountCustomerKeyCredit;
 
+    @Lob
     @Column(name = "FACT_ACCOUNT_GROUND")
     private String factAccountGround;
 

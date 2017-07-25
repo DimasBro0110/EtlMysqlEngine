@@ -29,7 +29,7 @@ public class FactDealsWriter implements ItemWriter<FactDeals> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDealsWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDealsWriter");
 
     }
 

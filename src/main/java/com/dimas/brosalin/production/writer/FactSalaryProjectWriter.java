@@ -27,7 +27,7 @@ public class FactSalaryProjectWriter implements ItemWriter<FactSalaryProject> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactSalaryProject]");
+    //    LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactSalaryProject]");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

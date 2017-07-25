@@ -27,7 +27,7 @@ public class FactIbLoginHistoryWriter implements ItemWriter<FactIbLoginHistoryWr
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIbLoginHistoryWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIbLoginHistoryWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

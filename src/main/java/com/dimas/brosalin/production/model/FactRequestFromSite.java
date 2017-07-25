@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by DmitriyBrosalin on 20/07/2017.
@@ -27,6 +24,7 @@ public class FactRequestFromSite {
     @Column(name = "FACT_REQUEST_MSC_AMOUNT")
     private String factRequestMscAmount;
 
+    @Lob
     @Column(name = "FACT_REQUEST_MCS_URL_REQUEST_FROM_SITE")
     private String factRequestMcsUrlRequestFromSite;
 

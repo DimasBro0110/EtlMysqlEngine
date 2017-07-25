@@ -28,7 +28,7 @@ public class FactMonthlyPensionWriter implements ItemWriter<FactMontlyPension>{
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlyPensionWriter");
+//        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlyPensionWriter");
 
     }
 

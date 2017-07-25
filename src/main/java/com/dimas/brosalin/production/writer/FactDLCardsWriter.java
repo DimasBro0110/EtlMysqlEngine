@@ -27,7 +27,7 @@ public class FactDLCardsWriter implements ItemWriter<FactDLCards> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDLCards]");
+    //    LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDLCards]");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

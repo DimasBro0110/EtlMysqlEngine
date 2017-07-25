@@ -29,7 +29,7 @@ public class FactProductRequestWriter implements ItemWriter<FactProductRequest> 
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactProductRequestWriter");
+     //   LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactProductRequestWriter");
 
     }
 

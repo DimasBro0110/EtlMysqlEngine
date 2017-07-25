@@ -26,7 +26,7 @@ public class AccountsPlanWriter implements ItemWriter<AccountsPlanWriter> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE AccountsPlanWriter ]");
+    //    LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE AccountsPlanWriter ]");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

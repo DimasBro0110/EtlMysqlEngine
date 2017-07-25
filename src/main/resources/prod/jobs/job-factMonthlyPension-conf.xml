@@ -37,7 +37,7 @@
             <batch:tasklet>
                 <batch:chunk reader="batchFactMonthlyPensionCsv"
                              writer="factMonthlyPensionWriter"
-                             commit-interval="10">
+                             commit-interval="150">
                     <batch:skip-policy>
                         <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
                     </batch:skip-policy>

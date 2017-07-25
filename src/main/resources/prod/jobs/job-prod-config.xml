@@ -39,6 +39,7 @@
     <import resource="job-factIncident-conf.xml"/>
     <import resource="job-factCase-conf.xml"/>
     <import resource="job-factAccountOperCDW-conf.xml"/>
-    <import resource="job-accountsPlan-conf.xml"/>
+    <import resource="job-factSalaryProject-conf.xml"/>
+    <import resource="job-parallel-conf.xml"/>
 
 </beans>

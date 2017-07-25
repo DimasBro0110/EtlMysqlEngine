@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 24.07.17.
@@ -23,6 +20,7 @@ public class FactCase {
     @Column(name = "FACT_CASE_CUSTOMER_KEY")
     private String factCaseCustomerKey;
 
+    @Lob
     @Column(name = "FACT_CASE_TYPE")
     private String factCaseType;
 

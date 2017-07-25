@@ -50,9 +50,11 @@ public class FactActivity {
     @Column(name = "FACT_ACTIVITY_DESCRIPTION")
     private String factActivityDescription;
 
+    @Lob
     @Column(name = "FACT_ACTIVITY_SUBJECT")
     private String factActivitySubject;
 
+    @Lob
     @Column(name = "FACT_ACTIVITY_SOURCE")
     private String factActivitySource;
 

@@ -27,7 +27,7 @@ public class FactTransactions_CDWWriter implements ItemWriter<FactTransactions_C
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactTransactions_CDWWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactTransactions_CDWWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

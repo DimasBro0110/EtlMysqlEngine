@@ -27,7 +27,7 @@ public class FactIncidentWriter implements ItemWriter<FactIncident> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIncidentWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIncidentWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

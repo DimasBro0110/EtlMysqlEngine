@@ -27,7 +27,7 @@ public class FactIntelligentOpportunityWriter implements ItemWriter<FactIntellig
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIntelligentOpportunityWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIntelligentOpportunityWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

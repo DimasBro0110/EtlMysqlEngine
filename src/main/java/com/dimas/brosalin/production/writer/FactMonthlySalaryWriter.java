@@ -27,7 +27,7 @@ public class FactMonthlySalaryWriter implements ItemWriter<FactMonthlySalary>{
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlySalaryWriter");
+    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlySalaryWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
