@@ -48,7 +48,7 @@ public class Main {
 //        Job prodJobFactSalaryProject = (Job) applicationContext.getBean("prodJobFactSalaryProject");
 //        Job prodJobFactTransactions_CDW = (Job) applicationContext.getBean("prodJobFactTransations_CDW");
 
-        Job prodJobParallel = (Job) applicationContext.getBean("jobParallel");
+        Job prodJobParallel = (Job) applicationContext.getBean("flowJob");
 
         try{
 

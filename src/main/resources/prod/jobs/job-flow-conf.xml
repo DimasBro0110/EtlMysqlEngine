@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <bean id="taskPartitionedExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="allowCoreThreadTimeOut" value="true"/>
+        <property name="corePoolSize" value="15"/>
+        <property name="maxPoolSize" value="20"/>
+    </bean>
+
+    <import resource="job-partitioned-dimPersonalCreditRequest.xml"/>
+
+    <batch:job id="flowJob" job-repository="jobRepository">
+
+        <batch:split id="split_1" task-executor="taskExecutor" next="step_3">
+            <batch:flow>
+                <batch:step id="step_1">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchDimProductSubgroupReaderCsv"
+                                     writer="dimProductSubgroupWriter"
+                                     commit-interval="5"/>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+
+            <batch:flow>
+                <batch:step id="step_2">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchDimProductGroupReaderCsv"
+                                     writer="dimProductGroupWriter"
+                                     commit-interval="5"/>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+        </batch:split>
+
+        <batch:step id="step_3">
+            <batch:job ref="masterDimPersonalCreditRequestJob"/>
+        </batch:step>
+
+    </batch:job>
+
+</beans>

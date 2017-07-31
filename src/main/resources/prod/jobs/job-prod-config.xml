@@ -41,5 +41,7 @@
     <import resource="job-factAccountOperCDW-conf.xml"/>
     <import resource="job-factSalaryProject-conf.xml"/>
     <import resource="job-parallel-conf.xml"/>
+    <import resource="job-partitioned-dimCustomer-conf.xml"/>
+    <import resource="job-flow-conf.xml"/>
 
 </beans>

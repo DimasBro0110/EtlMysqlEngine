@@ -1,6 +1,7 @@
 package com.dimas.brosalin.production.writer;
 
 import com.dimas.brosalin.production.model.DimProductSubgroup;
+import com.dimas.brosalin.production.model.FactCaseDeal;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,13 +15,13 @@ import java.util.logging.Logger;
 /**
  * Created by dmitriybrosalin on 21.07.17.
  */
-public class FactCaseDealWriter implements ItemWriter<FactCaseDealWriter> {
+public class FactCaseDealWriter implements ItemWriter<FactCaseDeal> {
 
     private SessionFactory sessionFactory;
     private static Logger LOGGER = Logger.getLogger(FactCaseDealWriter.class.getName());
 
     @Override
-    public void write(List<? extends FactCaseDealWriter> list) throws Exception {
+    public void write(List<? extends FactCaseDeal> list) throws Exception {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -29,7 +30,7 @@ public class FactCaseDealWriter implements ItemWriter<FactCaseDealWriter> {
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactCaseDealWriter");
+        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactCaseDealWriter");
 
     }
 

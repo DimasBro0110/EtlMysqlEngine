@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class FactDLCardsWriter implements ItemWriter<FactDLCards> {
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(FactDLCardsWriter.class.getName());
 
     @Override
@@ -27,10 +28,15 @@ public class FactDLCardsWriter implements ItemWriter<FactDLCards> {
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDLCards]");
+        LOGGER.log(Level.INFO, threadName + " " +
+                "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactDLCards]");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }

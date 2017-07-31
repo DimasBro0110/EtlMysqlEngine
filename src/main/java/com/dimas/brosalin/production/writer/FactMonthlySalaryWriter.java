@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class FactMonthlySalaryWriter implements ItemWriter<FactMonthlySalary>{
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(FactMonthlySalaryWriter.class.getName());
 
     @Override
@@ -27,10 +28,15 @@ public class FactMonthlySalaryWriter implements ItemWriter<FactMonthlySalary>{
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlySalaryWriter");
+        LOGGER.log(Level.INFO, threadName + " " +
+                "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactMonthlySalaryWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }

@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class FactIntelligentOpportunityWriter implements ItemWriter<FactIntelligentOpportunity> {
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(FactIntelligentOpportunityWriter.class.getName());
 
     @Override
@@ -27,10 +28,14 @@ public class FactIntelligentOpportunityWriter implements ItemWriter<FactIntellig
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIntelligentOpportunityWriter");
+        LOGGER.log(Level.INFO, threadName + " " + "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactIntelligentOpportunityWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }

@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class FactAccount_Oper_CDWWriter implements ItemWriter<FactAccount_Oper_CDW> {
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(FactAccount_Oper_CDWWriter.class.getName());
 
     @Override
@@ -27,10 +28,15 @@ public class FactAccount_Oper_CDWWriter implements ItemWriter<FactAccount_Oper_C
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactAccount_Oper_CDWWriter");
+        LOGGER.log(Level.INFO, this.threadName + " "
+                + "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactAccount_Oper_CDWWriter");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }

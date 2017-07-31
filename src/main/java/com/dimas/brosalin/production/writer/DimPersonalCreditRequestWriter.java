@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class DimPersonalCreditRequestWriter implements ItemWriter<DimPersonalCreditRequest> {
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(DimPersonalCreditRequestWriter.class.getName());
 
     @Override
@@ -29,11 +30,16 @@ public class DimPersonalCreditRequestWriter implements ItemWriter<DimPersonalCre
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE DimPersonalCreditRequestWriter");
+        LOGGER.log(Level.INFO, this.threadName + " " +
+                "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE DimPersonalCreditRequestWriter");
 
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }

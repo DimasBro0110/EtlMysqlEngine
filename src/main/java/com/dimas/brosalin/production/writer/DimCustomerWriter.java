@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class DimCustomerWriter implements ItemWriter<DimCustomer> {
 
     private SessionFactory sessionFactory;
+    private String threadName;
     private static Logger LOGGER = Logger.getLogger(DimCustomerWriter.class.getName());
 
     @Override
@@ -28,10 +29,18 @@ public class DimCustomerWriter implements ItemWriter<DimCustomer> {
         session.clear();
         transaction.commit();
         session.close();
-        LOGGER.log(Level.INFO, "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE DIM_CUSTOMER");
+        LOGGER.log(Level.INFO, threadName + " " + "BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE DIM_CUSTOMER");
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public String getThreadName() {
+        return threadName;
+    }
+
+    public void setThreadName(String threadName) {
+        this.threadName = threadName;
     }
 }
