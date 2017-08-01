@@ -5,20 +5,20 @@
 
     <bean id="partitionerFactDlCardsByLines" class="com.dimas.brosalin.production.partitioner.PartitionerByLines">
         <property name="batchSize" value="100000"/>
-        <property name="pathToFile" value="/Users/DmitriyBrosalin/TestFiles/work_data/Fact_DL_Cards.csv"/>
-        <property name="tempDir" value="/Users/DmitriyBrosalin/TestFiles/work_data/temp_dir"/>
+        <property name="pathToFile" value="/home-srv2/projects/SPBBank/input_data/raw_data/Fact_DL_Cards.csv"/>
+        <property name="tempDir" value="/home-srv2/dbrosalin/temp_dir"/>
     </bean>
 
-    <batch:job id="masterFactDlCardsJob">
+    <batch:job id="masterFactDlCardsJob" job-repository="jobRepository">
         <batch:step id="masterStep">
             <batch:partition step="slaveFactDlCardsStep" partitioner="partitionerByLines">
-                <batch:handler grid-size="15" task-executor="taskPartitionedExecutor"/>
+                <batch:handler task-executor="taskFlowExecutor"/>
             </batch:partition>
         </batch:step>
     </batch:job>
 
     <batch:step id="slaveFactDlCardsStep">
-        <batch:tasklet>
+        <batch:tasklet throttle-limit="10">
             <batch:chunk reader="batchPartitionedFactDlCardsCsv"
                          writer="partitionedFactDlCardsWriter"
                          commit-interval="100">

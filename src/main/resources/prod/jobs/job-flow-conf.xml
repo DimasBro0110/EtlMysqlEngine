@@ -3,42 +3,202 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
 
-    <bean id="taskPartitionedExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+    <bean id="taskFlowExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <property name="allowCoreThreadTimeOut" value="true"/>
-        <property name="corePoolSize" value="15"/>
-        <property name="maxPoolSize" value="20"/>
+        <property name="corePoolSize" value="25"/>
+        <property name="maxPoolSize" value="450"/>
     </bean>
 
     <import resource="job-partitioned-dimPersonalCreditRequest.xml"/>
+    <import resource="job-partitioned-factDlCards-config.xml"/>
+    <import resource="job-partitioned-factAccount_Oper_Cdw-conf.xml"/>
+    <import resource="job-partitioned-factCaseProductRequest-conf.xml"/>
+    <import resource="job-partitioned-factActivity-conf.xml"/>
+    <import resource="job-partitioned-factIBLoginHistory-conf.xml"/>
+    <import resource="job-partitioned-factIntelligentOpportunity-conf.xml"/>
 
     <batch:job id="flowJob" job-repository="jobRepository">
 
-        <batch:split id="split_1" task-executor="taskExecutor" next="step_3">
+        <!--<batch:split id="split_1" task-executor="taskFlowExecutor" next="step_2">-->
+            <!--<batch:flow>-->
+                <!--<batch:step id="split_1_step_1">-->
+                    <!--<batch:tasklet transaction-manager="transactionManager" throttle-limit="13">-->
+                        <!--<batch:chunk reader="batchDimProductSubgroupReaderCsv"-->
+                                     <!--writer="dimProductSubgroupWriter"-->
+                                     <!--commit-interval="30">-->
+
+                            <!--<batch:skip-policy>-->
+                                <!--<bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>-->
+                            <!--</batch:skip-policy>-->
+
+                        <!--</batch:chunk>-->
+                    <!--</batch:tasklet>-->
+                <!--</batch:step>-->
+            <!--</batch:flow>-->
+
+            <!--<batch:flow>-->
+                <!--<batch:step id="split_1_step_2">-->
+                    <!--<batch:tasklet transaction-manager="transactionManager" throttle-limit="13">-->
+                        <!--<batch:chunk reader="batchDimProductGroupReaderCsv"-->
+                                     <!--writer="dimProductGroupWriter"-->
+                                     <!--commit-interval="30">-->
+
+                            <!--<batch:skip-policy>-->
+                                <!--<bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>-->
+                            <!--</batch:skip-policy>-->
+
+                        <!--</batch:chunk>-->
+                    <!--</batch:tasklet>-->
+                <!--</batch:step>-->
+            <!--</batch:flow>-->
+
+            <!--<batch:flow>-->
+                <!--<batch:step id="split_1_step_3">-->
+                    <!--<batch:tasklet transaction-manager="transactionManager" throttle-limit="13">-->
+                        <!--<batch:chunk reader="batchFactCaseDealCsv"-->
+                                     <!--writer="factCaseDealWriter"-->
+                                     <!--commit-interval="30">-->
+
+                            <!--<batch:skip-policy>-->
+                                <!--<bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>-->
+                            <!--</batch:skip-policy>-->
+
+                        <!--</batch:chunk>-->
+                    <!--</batch:tasklet>-->
+                <!--</batch:step>-->
+            <!--</batch:flow>-->
+        <!--</batch:split>-->
+
+        <batch:step id="step_2">
+            <batch:job ref="masterDimPersonalCreditRequestJob"/>
+        </batch:step>
+
+        <!--<batch:step id="step_3" next="step_4">-->
+            <!--<batch:job ref="flowJob2"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_4" next="step_5">-->
+            <!--<batch:job ref="flowJob3"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_5" next="step_6">-->
+            <!--<batch:job ref="masterDimCustomerJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_6" next="step_7">-->
+            <!--<batch:job ref="masterFactDlCardsJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_7" next="step_8">-->
+            <!--<batch:job ref="masterFactAccountOperCDWJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_8" next="step_9">-->
+            <!--<batch:job ref="masterFactActivityJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_9" next="step_10">-->
+            <!--<batch:job ref="masterFactIBLoginHistoryJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_10" next="step_11">-->
+            <!--<batch:job ref="masterFactCaseProductRequestJob"/>-->
+        <!--</batch:step>-->
+
+        <!--<batch:step id="step_11">-->
+            <!--<batch:job ref="masterFactIntelligentOpportunityJob"/>-->
+        <!--</batch:step>-->
+
+    </batch:job>
+
+    <batch:job id="flowJob3" job-repository="jobRepository">
+        <batch:split id="split_3" task-executor="taskFlowExecutor">
             <batch:flow>
-                <batch:step id="step_1">
+                <batch:step id="split_3_step_1">
                     <batch:tasklet transaction-manager="transactionManager">
-                        <batch:chunk reader="batchDimProductSubgroupReaderCsv"
-                                     writer="dimProductSubgroupWriter"
-                                     commit-interval="5"/>
+                        <batch:chunk reader="batchFactCampaignActivityMemberCsv"
+                                     writer="factCampaignActivityMemberWriter"
+                                     commit-interval="100">
+
+                            <batch:skip-policy>
+                                <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
+                            </batch:skip-policy>
+
+                        </batch:chunk>
                     </batch:tasklet>
                 </batch:step>
             </batch:flow>
 
             <batch:flow>
-                <batch:step id="step_2">
+                <batch:step id="split_3_step_2">
                     <batch:tasklet transaction-manager="transactionManager">
-                        <batch:chunk reader="batchDimProductGroupReaderCsv"
-                                     writer="dimProductGroupWriter"
-                                     commit-interval="5"/>
+                        <batch:chunk reader="batchFactRequestFromSiteCsv"
+                                     writer="factRequestFromSiteWriter"
+                                     commit-interval="100">
+
+                            <batch:skip-policy>
+                                <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
+                            </batch:skip-policy>
+
+                        </batch:chunk>
                     </batch:tasklet>
                 </batch:step>
             </batch:flow>
         </batch:split>
+    </batch:job>
 
-        <batch:step id="step_3">
-            <batch:job ref="masterDimPersonalCreditRequestJob"/>
-        </batch:step>
+    <batch:job id="flowJob2" job-repository="jobRepository">
 
+        <batch:split id="split_2" task-executor="taskFlowExecutor">
+            <batch:flow>
+                <batch:step id="split_2_step_1">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchAccountsPlanReaderCsv"
+                                     writer="accountsPlanWriter"
+                                     commit-interval="100">
+
+                        <batch:skip-policy>
+                            <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
+                        </batch:skip-policy>
+
+                        </batch:chunk>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+
+            <batch:flow>
+                <batch:step id="split_2_step_2">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchDimCampaignReaderCsv"
+                                     writer="dimCampaignWriter"
+                                     commit-interval="100">
+
+                            <batch:skip-policy>
+                                <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
+                            </batch:skip-policy>
+
+                        </batch:chunk>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+
+            <batch:flow>
+                <batch:step id="split_2_step_3">
+                    <batch:tasklet transaction-manager="transactionManager">
+                        <batch:chunk reader="batchFactIncidentCsv"
+                                     writer="factIncidentWriter"
+                                     commit-interval="100">
+
+                            <batch:skip-policy>
+                                <bean class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
+                            </batch:skip-policy>
+
+                        </batch:chunk>
+                    </batch:tasklet>
+                </batch:step>
+            </batch:flow>
+
+        </batch:split>
     </batch:job>
 
 </beans>

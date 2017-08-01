@@ -70,6 +70,7 @@ public class PartitionerByLines implements Partitioner {
         arrayOfBatches.add(remain);
 
         String fileNameattern = this.tempDir + "/chunk-";
+        LOGGER.log(Level.INFO, "BATCHES ARE: " + arrayOfBatches);
 
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile))){
 
@@ -80,6 +81,9 @@ public class PartitionerByLines implements Partitioner {
 
 
             while((line = bufferedReader.readLine()) != null) {
+
+                arrayList.add(line);
+                counter += 1;
 
                 if(counter == arrayOfBatches.get(index)){
                     String file = fileNameattern + index;
@@ -92,9 +96,9 @@ public class PartitionerByLines implements Partitioner {
                     arrayList.clear();
                     counter = 0;
                     index += 1;
-                }else{
-                    arrayList.add(line);
-                    counter += 1;
+
+                    if(index == arrayOfBatches.size())
+                        index -= 1;
                 }
 
             }

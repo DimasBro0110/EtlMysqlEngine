@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 22.07.17.
@@ -23,6 +20,9 @@ import javax.persistence.Table;
 public class FactDLCards {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_DL_CARDS_ID")
     private String factCardsId;
 
@@ -208,5 +208,13 @@ public class FactDLCards {
 
     public void setFactState(String factState) {
         this.factState = factState;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

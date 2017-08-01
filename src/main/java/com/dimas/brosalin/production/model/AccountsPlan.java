@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 22.07.17.
@@ -14,6 +11,9 @@ import javax.persistence.Table;
 public class AccountsPlan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "ACCOUNT_PLAN_CODE")
     private String accountPlanCode;
 
@@ -34,5 +34,13 @@ public class AccountsPlan {
 
     public void setAccountPlanDescription(String accountPlanDescription) {
         this.accountPlanDescription = accountPlanDescription;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

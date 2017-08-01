@@ -19,6 +19,9 @@ import javax.validation.groups.ConvertGroup;
 public class FactActivity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_ACTIVITY_KEY")
     private String factActivityKey;
 
@@ -152,5 +155,13 @@ public class FactActivity {
 
     public void setFactActivityCampaignKey(String factActivityCampaignKey) {
         this.factActivityCampaignKey = factActivityCampaignKey;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

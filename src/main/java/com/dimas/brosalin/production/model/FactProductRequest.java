@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by DmitriyBrosalin on 20/07/2017.
@@ -24,6 +21,9 @@ import javax.persistence.Table;
 public class FactProductRequest {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_PRODUCT_REQUEST_KEY")
     private String factProductRequestKey;
 
@@ -231,5 +231,13 @@ public class FactProductRequest {
 
     public void setFactDateStage6(String factDateStage6) {
         this.factDateStage6 = factDateStage6;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

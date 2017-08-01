@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 24.07.17.
@@ -14,6 +11,9 @@ import javax.persistence.Table;
 public class FactIntelligentOpportunity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_INTELLIGENT_OPPORTUNITY_KEY")
     private String factIntelligentOpportunityKey;
 
@@ -188,5 +188,13 @@ public class FactIntelligentOpportunity {
 
     public void setFactIntelligentBannerDisplayed(String factIntelligentBannerDisplayed) {
         this.factIntelligentBannerDisplayed = factIntelligentBannerDisplayed;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

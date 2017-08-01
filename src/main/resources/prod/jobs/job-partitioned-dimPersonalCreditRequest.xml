@@ -4,21 +4,30 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
 
     <bean id="partitionerDimPersonalCreditRequestByLines" class="com.dimas.brosalin.production.partitioner.PartitionerByLines">
-        <property name="batchSize" value="100000"/>
+        <property name="batchSize" value="50000"/>
+        <!--<property name="pathToFile" value="/home-srv2/projects/SPBBank/input_data/raw_data/DimPersonalCreditRequest.csv"/>-->
         <property name="pathToFile" value="/Users/DmitriyBrosalin/TestFiles/work_data/DimPersonalCreditRequest.csv"/>
+        <!--<property name="tempDir" value="/home-srv2/dbrosalin/temp_dir"/>-->
         <property name="tempDir" value="/Users/DmitriyBrosalin/TestFiles/work_data/temp_dir"/>
     </bean>
 
-    <batch:job id="masterDimPersonalCreditRequestJob">
+    <bean id="taskFlowExecutor1" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="allowCoreThreadTimeOut" value="true"/>
+        <property name="corePoolSize" value="25"/>
+        <property name="maxPoolSize" value="450"/>
+    </bean>
+
+    <batch:job id="masterDimPersonalCreditRequestJob" job-repository="jobRepository">
         <batch:step id="masterStep">
-            <batch:partition step="slaveDimPersonalCreditRequestStep" partitioner="partitionerDimPersonalCreditRequestByLines">
-                <batch:handler grid-size="15" task-executor="taskPartitionedExecutor"/>
+            <batch:partition step="slaveDimPersonalCreditRequestStep"
+                             partitioner="partitionerDimPersonalCreditRequestByLines">
+                <batch:handler task-executor="taskFlowExecutor1" grid-size="2"/>
             </batch:partition>
         </batch:step>
     </batch:job>
 
     <batch:step id="slaveDimPersonalCreditRequestStep">
-        <batch:tasklet>
+        <batch:tasklet throttle-limit="10">
             <batch:chunk reader="batchPartitionedDimPersonalCreditRequestCsv"
                          writer="partitionedDimPersonalCreditRequestWriter"
                          commit-interval="100">

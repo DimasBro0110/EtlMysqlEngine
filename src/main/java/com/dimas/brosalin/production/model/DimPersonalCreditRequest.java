@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by DmitriyBrosalin on 19/07/2017.
@@ -15,6 +12,9 @@ import javax.persistence.Table;
 public class DimPersonalCreditRequest {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "PERSONAL_CREDIT_REQUEST_KEY")
     private String personalCreditRequestKey;
 
@@ -255,5 +255,13 @@ public class DimPersonalCreditRequest {
 
     public void setPersonalMcsEmployerName(String personalMcsEmployerName) {
         this.personalMcsEmployerName = personalMcsEmployerName;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by DmitriyBrosalin on 20/07/2017.
@@ -14,6 +11,9 @@ import javax.persistence.Table;
 public class DimProductSubgroup {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "PRODUCT_SUBGROUP_KEY")
     private String productSubgroupKey;
 
@@ -45,5 +45,13 @@ public class DimProductSubgroup {
 
     public void setProductGroupKey(String productGroupKey) {
         this.productGroupKey = productGroupKey;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

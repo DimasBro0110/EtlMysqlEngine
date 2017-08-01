@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by DmitriyBrosalin on 19/07/2017.
@@ -15,6 +12,9 @@ import javax.persistence.Table;
 public class DimCustomer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "CUSTOMER_KEY")
     private String customerKey;
 
@@ -299,5 +299,13 @@ public class DimCustomer {
 
     public void setCustomerIsEurop(String customerIsEurop) {
         this.customerIsEurop = customerIsEurop;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

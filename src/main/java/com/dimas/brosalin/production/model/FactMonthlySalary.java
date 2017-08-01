@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 24.07.17.
@@ -14,6 +11,9 @@ import javax.persistence.Table;
 public class FactMonthlySalary {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_SALARY_CUSTOMER_KEY")
     private String factSalaryCustomerKey;
 
@@ -45,5 +45,13 @@ public class FactMonthlySalary {
 
     public void setFactAmount(String factAmount) {
         this.factAmount = factAmount;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

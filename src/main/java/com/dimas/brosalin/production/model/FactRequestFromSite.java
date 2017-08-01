@@ -15,6 +15,9 @@ import javax.persistence.*;
 public class FactRequestFromSite {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_REQUEST_CUSTOMER_KEY")
     private String factRequestCustomerKey;
 
@@ -58,5 +61,13 @@ public class FactRequestFromSite {
 
     public void setFactRequestMcsUrlRequestFromSite(String factRequestMcsUrlRequestFromSite) {
         this.factRequestMcsUrlRequestFromSite = factRequestMcsUrlRequestFromSite;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

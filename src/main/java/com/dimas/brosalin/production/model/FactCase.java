@@ -11,6 +11,9 @@ import javax.persistence.*;
 public class FactCase {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_CASE_KEY")
     private String factCaseKey;
 
@@ -54,5 +57,13 @@ public class FactCase {
 
     public void setFactCaseType(String factCaseType) {
         this.factCaseType = factCaseType;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

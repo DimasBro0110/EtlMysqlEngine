@@ -11,6 +11,9 @@ import javax.persistence.*;
 public class FactAccount_Oper_CDW {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "FACT_ACCOUNT_OPER_KEY")
     private String factAccountOperKey;
 
@@ -109,5 +112,13 @@ public class FactAccount_Oper_CDW {
 
     public void setFactAccountIdDoc(String factAccountIdDoc) {
         this.factAccountIdDoc = factAccountIdDoc;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

@@ -20,12 +20,12 @@
                 <prop key="format_sql">true</prop>
                 <prop key="hbm2ddl.auto">update</prop>
                 <prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-                <prop key="hibernate.jdbc.batch_size">30</prop>
-                <prop key="hibernate.default_batch_fetch_size">30</prop>
+                <prop key="hibernate.jdbc.batch_size">200</prop>
+                <prop key="hibernate.default_batch_fetch_size">100</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
-                <prop key="hibernate.c3p0.min_size">5</prop>
-                <prop key="hibernate.c3p0.max_size">20</prop>
+                <prop key="hibernate.c3p0.min_size">10</prop>
+                <prop key="hibernate.c3p0.max_size">1500</prop>
                 <prop key="hibernate.c3p0.max_statements">50</prop>
             </props>
         </property>

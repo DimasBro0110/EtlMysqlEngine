@@ -27,7 +27,7 @@ public class FactCampaignActivityMemberWriter implements ItemWriter<FactCampaign
         session.clear();
         transaction.commit();
         session.close();
-    //    LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactCampaignActivityMember]");
+        LOGGER.log(Level.INFO, "[ BATCH WITH SIZE OF " + list.size() + " SENT TO TABLE FactCampaignActivityMember]");
     }
 
     public SessionFactory getSessionFactory() {

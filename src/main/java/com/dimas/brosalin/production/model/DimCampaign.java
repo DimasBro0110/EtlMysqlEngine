@@ -1,9 +1,6 @@
 package com.dimas.brosalin.production.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by dmitriybrosalin on 22.07.17.
@@ -14,6 +11,9 @@ import javax.persistence.Table;
 public class DimCampaign {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int entityId;
+
     @Column(name = "DIM_CAMPAIGN_KEY")
     private String dimCampaignKey;
 
@@ -199,5 +199,13 @@ public class DimCampaign {
 
     public void setGetDimCampaignTemplateProductSubgroupKey(String getDimCampaignTemplateProductSubgroupKey) {
         this.getDimCampaignTemplateProductSubgroupKey = getDimCampaignTemplateProductSubgroupKey;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(int entityId) {
+        this.entityId = entityId;
     }
 }

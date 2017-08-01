@@ -52,6 +52,13 @@
           <file>file://$MODULE_DIR$/src/main/resources/prod/partitioned-jobs/job-partitioned-factSalaryProjectCFT-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/partitioned-jobs/job-partitioned-factTransactionsCDW-conf.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-prod-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factDlCards-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-dimProductSubgroup-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factAccount_Oper_Cdw-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factActivity-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factIBLoginHistory-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factCaseProductRequest-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/prod/jobs/job-partitioned-factIntelligentOpportunity-conf.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -91,7 +98,6 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.13.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.10" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.24" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.24" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
@@ -133,5 +139,7 @@
     <orderEntry type="library" name="Maven: org.luaj:luaj-jse:3.0" level="project" />
     <orderEntry type="library" name="Maven: org.mindrot:jbcrypt:0.3m" level="project" />
     <orderEntry type="library" name="Maven: com.aerospike:aerospike-helper-java:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.6.4" level="project" />
   </component>
 </module>
